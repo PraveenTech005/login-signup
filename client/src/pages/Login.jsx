@@ -20,7 +20,7 @@ const Login = () => {
       const newUser = { ...cred, email: cred.email.toLowerCase() };
 
       await axios
-        .post("http://localhost:3000/api/User/login", newUser)
+        .post(`${import.meta.env.VITE_API_URL}/User/login`, newUser)
         .then((res) => {
           if (res.data.type === "Success") toast.success(res.data.message);
           if (res.data.type === "Warning") return toast.warn(res.data.message);

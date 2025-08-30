@@ -23,7 +23,7 @@ const SignUp = () => {
       const newUser = { ...cred, email: cred.email.toLowerCase() };
 
       await axios
-        .post("http://localhost:3000/api/User/register", newUser)
+        .post(`${import.meta.env.VITE_API_URL}/User/register`, newUser)
         .then((res) => {
           if (res.data.type === "Success") toast.success(res.data.message);
           if (res.data.type === "Error") return toast.error(res.data.message);

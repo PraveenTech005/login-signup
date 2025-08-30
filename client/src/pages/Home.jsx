@@ -9,7 +9,7 @@ const Home = () => {
 
   const deleteUser = async () => {
     try {
-      await axios.delete("http://localhost:3000/api/User/delete", {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/User/delete`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("Token")}`,
         },
