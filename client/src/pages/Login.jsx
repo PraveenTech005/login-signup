@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { LuEye, LuEyeClosed } from "react-icons/lu";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [showPass, setShowPass] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -25,12 +27,12 @@ const Login = () => {
           if (res.data.type === "Success") toast.success(res.data.message);
           if (res.data.type === "Warning") return toast.warn(res.data.message);
           if (res.data.type === "Error") return toast.error(res.data.message);
+          setCred({
+            email: "",
+            password: "",
+          });
           setTimeout(() => {
-            setCred({
-              email: "",
-              password: "",
-            });
-            localStorage.setItem("Token", res.data.token)
+            localStorage.setItem("Token", res.data.token);
             localStorage.setItem("User", JSON.stringify(res.data.user));
             navigate("/");
           }, 2000);
@@ -54,6 +56,7 @@ const Login = () => {
             <p>Email</p>
             <input
               value={cred.email}
+              required
               onChange={(e) => setCred({ ...cred, email: e.target.value })}
               type="email"
               placeholder="Someone123@gmail.com"
@@ -62,14 +65,25 @@ const Login = () => {
           </div>
           <div className="space-y-2">
             <p>Password</p>
-            <input
-              value={cred.password}
-              onChange={(e) => setCred({ ...cred, password: e.target.value })}
-              type="password"
-              placeholder="Passxxxx"
-              className="border p-1 rounded-md focus:border-2 w-full"
-            />
+            <div className="flex justify-between items-center space-x-2">
+              <input
+                required
+                value={cred.password}
+                onChange={(e) => setCred({ ...cred, password: e.target.value })}
+                type={showPass ? "text" : "password"}
+                placeholder="Passxxxx"
+                className="border p-1 rounded-md focus:border-2 w-full"
+              />
+              <button
+                type="button"
+                className="p-1"
+                onClick={() => setShowPass((prev) => !prev)}
+              >
+                {showPass ? <LuEye size={20} /> : <LuEyeClosed size={20} />}
+              </button>
+            </div>
           </div>
+
           <button className="b2 p-1 px-8">Login</button>
         </form>
         <h3 className="text-sm">
