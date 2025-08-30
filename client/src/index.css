@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap");
+
+@import "tailwindcss";
+
+html,
+body {
+  width: "100%";
+  height: "100%";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.dyna {
+  font-family: "DynaPuff", system-ui;
+}
+
+.shadow-c {
+  box-shadow: 10px 10px 20px rgba(33, 33, 33, 0.5);
+}
+
+button {
+  display: flex;
+  margin-inline: auto;
+  border: 2px solid oklch(50% 0.134 242.749);
+  cursor: pointer;
+  font-family: "DynaPuff", system-ui;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.b1 {
+  background-color: white;
+  color: oklch(50% 0.134 242.749);
+}
+
+.b1:hover{
+  background-color: oklch(84.057% 0.06541 252.859);
+}
+
+.b2 {
+  background-color: oklch(50% 0.134 242.749);
+  color: white;
+}
+
+.b2:hover{
+  background-color: oklch(43.438% 0.10847 245.047);
+}
+
+button a{
+  display: flex;
+  padding: 4px;
+  padding-inline: 32px;
+}
