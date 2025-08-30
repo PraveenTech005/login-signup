@@ -12,6 +12,18 @@ This app demonstrates **signup, login, JWT authentication, and protected routes*
 
 ---
 
+## 🚀 Live Demo  
+
+🔗 **Running on Vercel as FrontEnd and Render as Backend:** [Login-Signup](https://login-signup-kappa-fawn.vercel.app/)
+
+<p align="center">
+  <a href="[https://your-frontend.vercel.app](https://login-signup-kappa-fawn.vercel.app/)" target="_blank">
+    <img src="https://img.shields.io/badge/Live-Demo-green?style=for-the-badge&logo=vercel" alt="Live Demo" />
+  </a>
+</p>
+
+---
+
 ## ✨ Features
 - 📝 **Signup** – Create an account with name, email, and password  
 - 🔑 **Login** – Authenticate and receive a JWT token  
